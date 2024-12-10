@@ -27,7 +27,7 @@ app.use('/api/user', userRouter)
 app.use('/api/image', imageRouter)
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(buildPath, 'index.html'));
+    res.sendFile(path.resolve(buildPath, 'index.html'))
 });
 
 
