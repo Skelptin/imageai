@@ -3,13 +3,21 @@ import { assets } from '../assets/assets'
 import { motion } from 'motion/react'
 import { AppContext } from '../context/AppContext'
 
+import BeatLoader from "react-spinners/BeatLoader";
+
 const Result = () => {
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
 
   const [image, setImage] = useState(assets.sample_img_1)
   const [isImageLoaded, setIsImageLoaded] = useState(false)
   const [loading, setLoading] = useState(false)
   const [input, setInput] = useState('')
-
+  const [color, setColor] = useState("#ffffff");
 
   const { generateImage } = useContext(AppContext);
 
@@ -39,13 +47,17 @@ const Result = () => {
       onSubmit={onSubmitHandler} className='flex flex-col min-h-[90vh] items-center justify-center'>
       <div>
         <div className='relative '>
-          <img src={image} className='max-w-sm rounded' alt="" />
-          <span className={`absolute bottom-0 left-0 h-1 bg-blue-500 
-   ${loading ? 'w-full transition-all duration-[10s]' : 'w-0'} `} />
+          <img src={image} className={`${loading ? 'hidden' : 'block'} max-w-sm rounded`} alt="" />
+          <BeatLoader
+            color="#16e0bf"
+            loading={loading}
+            cssOverride={override}
+            size={10}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
         </div>
-        <p className={loading ? '' : 'hidden'}>
-          Loading...
-        </p>
+      
       </div>
 
       {!isImageLoaded &&

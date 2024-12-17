@@ -49,8 +49,9 @@ const Header = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-            >Unleash your creativity with AI. Turn your imagination into visual art in seconds - just type,
-                and watch the magic happen.
+            >Let your imagination run wild! With AI, turn your
+                ideas into jaw-dropping visuals
+                in seconds—just type and watch the magic happen.
             </motion.p>
 
             <motion.button
