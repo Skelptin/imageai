@@ -15,9 +15,9 @@ const app = express();
 
 app.use(express.json())
 
-const _dirname = path.dirname("")
-const buildPath = path.join(_dirname, "../frontend/dist")
-app.use(express.static(buildPath))
+// const _dirname = path.dirname("")
+// const buildPath = path.join(_dirname, "../frontend/dist")
+// app.use(express.static(buildPath))
 
 app.use(cors())
 
@@ -26,9 +26,9 @@ await connectDB()
 app.use('/api/user', userRouter)
 app.use('/api/image', imageRouter)
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(buildPath, 'index.html'))
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(buildPath, 'index.html'))
+// });
 
 
 app.listen(PORT, '0.0.0.0', () => {
